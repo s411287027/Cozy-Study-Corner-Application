@@ -1,0 +1,155 @@
+/* style.css - Cozy Theme Redesign */
+
+/* --- 全域設定 --- */
+body {
+    /* 使用微軟正黑體，並加上圓潤的英文字體後備 */
+    font-family: "Microsoft JhengHei", "Varela Round", Arial, sans-serif;
+    /* 溫暖的米色到淺藍色漸層背景，模仿遊戲天空 */
+    background: linear-gradient(135deg, #FFF8E1 0%, #E3F2FD 100%);
+    color: #546E7A; /* 柔和的深藍灰色文字，不使用純黑 */
+    margin: 0;
+    padding: 40px 20px;
+    line-height: 1.6;
+    min-height: 100vh; /* 確保背景填滿視窗 */
+    box-sizing: border-box;
+}
+
+/* --- 主容器卡片 --- */
+.main-container {
+    background-color: rgba(255, 255, 255, 0.95); /*稍微透明的白色背景 */
+    max-width: 900px; /* 限制最大寬度 */
+    margin: 0 auto; /* 居中 */
+    padding: 40px;
+    border-radius: 30px; /* 大圓角 */
+    /* 柔和的雙層陰影，製造浮起感 */
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.05),
+        0 4px 8px rgba(0,0,0,0.03);
+    text-align: center;
+}
+
+/* --- 標題區 --- */
+h1 {
+    color: #6B8EAE; /* 取自遊戲頭髮的藍色調 */
+    margin-bottom: 10px;
+    font-size: 2.2em;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    color: #90A4AE;
+    margin-top: 0;
+}
+
+h2 {
+    color: #8D6E63; /* 溫暖的棕色標題 */
+    margin-top: 40px;
+    margin-bottom: 25px;
+}
+
+/* --- 介紹文字 --- */
+.intro p {
+    font-size: 1.1em;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+/* --- 截圖展示區 (Gallery Grid) --- */
+.gallery-grid {
+    display: grid;
+    /* RWD 設定：電腦版三欄，手機版自動變一欄 */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px; /* 圖片間距 */
+    margin-bottom: 40px;
+}
+
+.gallery-item {
+    background: #fff;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease; /* 滑鼠移過的動畫 */
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px); /* 滑鼠移過時稍微上浮 */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px; /* 圖片本身的圓角 */
+    display: block;
+}
+
+.caption {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #8D6E63;
+    font-weight: bold;
+}
+
+/* --- 下載區塊 --- */
+.download-btn {
+    display: inline-block;
+    /* 使用溫暖的粉橘色，類似遊戲裡的家具 */
+    background-color: #FFAB91; 
+    color: white;
+    padding: 18px 40px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 50px; /* 超圓按鈕 */
+    margin: 30px 0;
+    box-shadow: 0 6px 20px rgba(255, 171, 145, 0.4); /* 彩色陰影 */
+    transition: all 0.3s ease;
+    border: 3px solid transparent; /* 預留邊框位置 */
+}
+
+.download-btn:hover {
+    background-color: #FF8A65; /* 滑鼠移過變深 */
+    transform: scale(1.05); /* 稍微變大 */
+    box-shadow: 0 8px 25px rgba(255, 171, 145, 0.6);
+}
+
+/* --- 說明框 --- */
+.instruction-box {
+    background-color: #FBE9E7; /* 極淺的粉橘色背景 */
+    color: #795548;
+    display: inline-block;
+    text-align: left; /* 內容靠左對齊 */
+    padding: 25px 35px;
+    border-radius: 20px;
+    border: 2px dashed #FFCCBC; /* 虛線邊框增加可愛感 */
+    margin-top: 20px;
+}
+
+.instruction-box ol {
+    margin: 10px 0 0 0;
+    padding-left: 25px;
+}
+
+.instruction-box li {
+    margin-bottom: 8px;
+}
+
+/* --- 頁尾 --- */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.8em;
+    color: #B0BEC5;
+}
+
+/* --- 手機版微調 --- */
+@media (max-width: 600px) {
+    .main-container {
+        padding: 25px 15px;
+    }
+    h1 { font-size: 1.8em; }
+    .download-btn {
+        width: 80%; /* 手機版按鈕寬一點 */
+        padding: 15px 20px;
+    }
+}
