@@ -1,155 +1,309 @@
-/* style.css - Cozy Theme Redesign */
-
 /* --- 全域設定 --- */
-body {
-    /* 使用微軟正黑體，並加上圓潤的英文字體後備 */
-    font-family: "Microsoft JhengHei", "Varela Round", Arial, sans-serif;
-    /* 溫暖的米色到淺藍色漸層背景，模仿遊戲天空 */
-    background: linear-gradient(135deg, #FFF8E1 0%, #E3F2FD 100%);
-    color: #546E7A; /* 柔和的深藍灰色文字，不使用純黑 */
-    margin: 0;
-    padding: 40px 20px;
-    line-height: 1.6;
-    min-height: 100vh; /* 確保背景填滿視窗 */
-    box-sizing: border-box;
+:root {
+    --primary-color: #FFAB91; /* 溫暖的粉橘 (來自簡報風格) */
+    --secondary-color: #81D4FA; /* 天空藍 */
+    --bg-color: #FFFDF5; /* 米白色背景 */
+    --text-color: #546E7A; /* 深灰藍文字 */
+    --card-bg: #FFFFFF;
+    --nav-height: 70px;
 }
 
-/* --- 主容器卡片 --- */
-.main-container {
-    background-color: rgba(255, 255, 255, 0.95); /*稍微透明的白色背景 */
-    max-width: 900px; /* 限制最大寬度 */
-    margin: 0 auto; /* 居中 */
-    padding: 40px;
-    border-radius: 30px; /* 大圓角 */
-    /* 柔和的雙層陰影，製造浮起感 */
-    box-shadow: 
-        0 10px 30px rgba(0, 0, 0, 0.05),
-        0 4px 8px rgba(0,0,0,0.03);
+body {
+    font-family: 'Noto Sans TC', 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding-top: var(--nav-height); /* 避免內容被導航列擋住 */
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    color: #455A64;
+}
+
+img {
+    max-width: 100%;
+    border-radius: 12px;
+}
+
+/* --- 導航列 (Hamburger Menu) --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: var(--nav-height);
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary-color);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+/* 漢堡按鈕樣式 */
+.hamburger {
+    display: none; /* 電腦版隱藏 */
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px;
+    background-color: var(--text-color);
+    transition: all 0.3s;
+}
+
+/* --- Hero 區塊 --- */
+.hero-section {
+    background: linear-gradient(135deg, #FFF3E0 0%, #E1F5FE 100%);
+    text-align: center;
+    padding: 80px 20px;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: #5D4037;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    color: #78909C;
+}
+
+.cta-btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 40px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(255, 171, 145, 0.4);
+    transition: transform 0.2s;
+}
+
+.cta-btn:hover {
+    transform: translateY(-3px);
+    background-color: #FF8A65;
+}
+
+/* --- 通用區塊設定 --- */
+.content-section {
+    padding: 60px 20px;
+}
+
+.alternate-bg {
+    background-color: #F0F4C3; /* 淡淡的綠色，配合學習氛圍 */
+    background-color: rgba(240, 244, 195, 0.3);
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 50px;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--secondary-color);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* --- 設計理念 Grid --- */
+.concept-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.concept-card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    text-align: center;
+    border: 2px solid #FFF3E0;
+}
+
+/* --- 功能特色 (圖文交錯) --- */
+.feature-list {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.feature-item.reverse {
+    flex-direction: row-reverse;
+}
+
+.feature-text {
+    flex: 1;
+}
+
+.feature-img {
+    flex: 1;
+}
+
+.feature-img img {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    border: 5px solid white;
+}
+
+/* --- 畫廊 --- */
+.gallery-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.gallery-grid img {
+    height: 200px; /* 統一高度 */
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+}
+
+/* --- 下載區 --- */
+.download-section {
+    padding: 80px 20px;
     text-align: center;
 }
 
-/* --- 標題區 --- */
-h1 {
-    color: #6B8EAE; /* 取自遊戲頭髮的藍色調 */
-    margin-bottom: 10px;
-    font-size: 2.2em;
+.box-shadow {
+    background: white;
+    padding: 50px;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
-.subtitle {
-    font-size: 1.2em;
-    color: #90A4AE;
-    margin-top: 0;
-}
-
-h2 {
-    color: #8D6E63; /* 溫暖的棕色標題 */
-    margin-top: 40px;
-    margin-bottom: 25px;
-}
-
-/* --- 介紹文字 --- */
-.intro p {
-    font-size: 1.1em;
-    max-width: 600px;
-    margin: 20px auto;
-}
-
-/* --- 截圖展示區 (Gallery Grid) --- */
-.gallery-grid {
-    display: grid;
-    /* RWD 設定：電腦版三欄，手機版自動變一欄 */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px; /* 圖片間距 */
-    margin-bottom: 40px;
-}
-
-.gallery-item {
-    background: #fff;
-    padding: 10px;
-    border-radius: 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    transition: transform 0.3s ease; /* 滑鼠移過的動畫 */
-}
-
-.gallery-item:hover {
-    transform: translateY(-5px); /* 滑鼠移過時稍微上浮 */
-}
-
-.gallery-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 15px; /* 圖片本身的圓角 */
-    display: block;
-}
-
-.caption {
-    display: block;
-    margin-top: 10px;
-    font-size: 0.9em;
-    color: #8D6E63;
-    font-weight: bold;
-}
-
-/* --- 下載區塊 --- */
-.download-btn {
+.download-final-btn {
     display: inline-block;
-    /* 使用溫暖的粉橘色，類似遊戲裡的家具 */
-    background-color: #FFAB91; 
+    background-color: #66BB6A; /* 綠色 */
     color: white;
-    padding: 18px 40px;
+    padding: 20px 50px;
+    font-size: 1.2rem;
+    border-radius: 10px;
     text-decoration: none;
-    font-size: 18px;
     font-weight: bold;
-    border-radius: 50px; /* 超圓按鈕 */
-    margin: 30px 0;
-    box-shadow: 0 6px 20px rgba(255, 171, 145, 0.4); /* 彩色陰影 */
-    transition: all 0.3s ease;
-    border: 3px solid transparent; /* 預留邊框位置 */
-}
-
-.download-btn:hover {
-    background-color: #FF8A65; /* 滑鼠移過變深 */
-    transform: scale(1.05); /* 稍微變大 */
-    box-shadow: 0 8px 25px rgba(255, 171, 145, 0.6);
-}
-
-/* --- 說明框 --- */
-.instruction-box {
-    background-color: #FBE9E7; /* 極淺的粉橘色背景 */
-    color: #795548;
-    display: inline-block;
-    text-align: left; /* 內容靠左對齊 */
-    padding: 25px 35px;
-    border-radius: 20px;
-    border: 2px dashed #FFCCBC; /* 虛線邊框增加可愛感 */
     margin-top: 20px;
+    transition: background 0.3s;
 }
 
-.instruction-box ol {
-    margin: 10px 0 0 0;
-    padding-left: 25px;
+.download-final-btn:hover {
+    background-color: #4CAF50;
 }
 
-.instruction-box li {
-    margin-bottom: 8px;
+.tech-stack {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #90A4AE;
 }
 
-/* --- 頁尾 --- */
 footer {
     text-align: center;
-    margin-top: 40px;
-    font-size: 0.8em;
-    color: #B0BEC5;
+    padding: 30px;
+    background-color: #ECEFF1;
+    color: #78909C;
+    font-size: 0.9rem;
 }
 
-/* --- 手機版微調 --- */
-@media (max-width: 600px) {
-    .main-container {
-        padding: 25px 15px;
+/* --- 手機版 RWD (漢堡選單邏輯) --- */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
     }
-    h1 { font-size: 1.8em; }
-    .download-btn {
-        width: 80%; /* 手機版按鈕寬一點 */
-        padding: 15px 20px;
+
+    .nav-links {
+        position: fixed;
+        right: -100%; /* 預設藏在右邊 */
+        top: var(--nav-height);
+        height: calc(100vh - var(--nav-height));
+        background-color: white;
+        flex-direction: column;
+        width: 60%;
+        padding-top: 20px;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.05);
+    }
+
+    .nav-links.active {
+        transform: translateX(-167%); /* 滑出來 (100/0.6 約 167%) */
+        right: 0; 
+        transform: translateX(0); /* 修正: 使用 translateX(0) 將其移回視口 */
+        right: 0;
+    }
+
+    .nav-links li {
+        margin: 20px 0;
+        text-align: center;
+    }
+
+    .feature-item, .feature-item.reverse {
+        flex-direction: column;
+    }
+
+    .hero-section h1 {
+        font-size: 2rem;
     }
 }

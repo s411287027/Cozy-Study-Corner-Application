@@ -3,60 +3,115 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cozy Study Corner - 溫馨學習角落</title>
+  <title>Cozy Study Corner</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <div class="main-container">
-    <header>
-      <h1>🎮 Cozy Study Corner Application</h1>
-      <p class="subtitle">打造屬於你的溫馨專注空間</p>
-    </header>
+  <nav class="navbar">
+    <div class="logo">Cozy Study Corner</div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" onclick="toggleMenu()">首頁</a></li>
+      <li><a href="#concept" onclick="toggleMenu()">設計理念</a></li>
+      <li><a href="#features" onclick="toggleMenu()">功能特色</a></li>
+      <li><a href="#gallery" onclick="toggleMenu()">遊戲畫面</a></li>
+      <li><a href="#download" onclick="toggleMenu()">立即下載</a></li>
+    </ul>
+  </nav>
 
-    <section class="intro">
-      <p>這是一款使用 Unity 製作的療癒系專注學習遊戲。<br>在這裡佈置房間、換裝、與朋友互動，讓學習時光變得更美好。</p>
-    </section>
+  <section id="home" class="hero-section">
+    <div class="hero-content">
+      <h1>打造屬於你的<br>溫馨專注空間</h1>
+      <p class="hero-subtitle">由 Team CAT 開發<br>結合虛擬陪伴與遊戲化的專注 App</p>
+      <a href="#download" class="cta-btn">開始佈置你的房間</a>
+    </div>
+  </section>
 
-    <section class="gallery-section">
-      <h2>✨ 遊戲畫面預覽</h2>
+  <section id="concept" class="content-section">
+    <div class="container">
+      <h2 class="section-title">為什麼選擇我們？</h2>
+      <div class="concept-grid">
+        <div class="concept-card">
+          <h3>🚫 無鏡頭壓力</h3>
+          <p>不用擔心隱私曝光，使用可愛的虛擬角色代替真人鏡頭，讓你在放鬆的狀態下專注</p>
+        </div>
+        <div class="concept-card">
+          <h3>🐈 虛擬陪伴感</h3>
+          <p>同一個場景裡的夥伴都在努力，雖然不說話，但你知道你並不孤單</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="content-section alternate-bg">
+    <div class="container">
+      <h2 class="section-title">產品特色</h2>
+      <div class="feature-list">
+        
+        <div class="feature-item">
+          <div class="feature-text">
+            <h3>01. 多樣場景切換</h3>
+            <p>無論是安靜的圖書館、溫馨的教室，還是愜意的咖啡廳。選擇你最喜歡的環境，與他人一起專注</p>
+          </div>
+          <div class="feature-img"><img src="screenshots/image_1.png" alt="教室場景"></div>
+        </div>
+
+        <div class="feature-item reverse">
+          <div class="feature-text">
+            <h3>02. 遊戲化獎勵機制</h3>
+            <p>專注時間轉換為金幣！解鎖更多可愛的衣服、家具裝飾。看著房間變漂亮，學習更有動力</p>
+          </div>
+          <div class="feature-img"><img src="screenshots/image_2.png" alt="換裝系統"></div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-text">
+            <h3>03. 輕量暖心互動</h3>
+            <p>透過「便利貼」給予夥伴鼓勵。沒有即時聊天的社交壓力，只有純粹的溫暖與支持</p>
+          </div>
+          <div class="feature-img"><img src="screenshots/image_3.png" alt="房間與便利貼"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery" class="content-section">
+    <div class="container">
+      <h2 class="section-title">遊戲實機畫面</h2>
       <div class="gallery-grid">
-        <div class="gallery-item">
-          <img src="screenshots/image_3.png" alt="溫馨小屋與角色">
-          <span class="caption">佈置你的專屬小屋</span>
-        </div>
-        <div class="gallery-item">
-          <img src="screenshots/image_2.png" alt="角色換裝介面">
-          <span class="caption">多樣化的角色穿搭</span>
-        </div>
-        <div class="gallery-item">
-          <img src="screenshots/image_1.png" alt="教室場景">
-          <span class="caption">在教室場景專注學習</span>
-        </div>
+        <img src="screenshots/image_3.png" alt="我的小屋">
+        <img src="screenshots/image_1.png" alt="多人教室">
+        <img src="screenshots/image_2.png" alt="角色穿搭">
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="download-section">
-      <p>準備好開始佈置你的角落了嗎？歡迎下載體驗！</p>
+  <section id="download" class="download-section">
+    <div class="container box-shadow">
+      <h2>準備好開始專注了嗎？</h2>
+      <p>Cozy Study Corner 等你加入。</p>
       
-      <a href="https://github.com/s411287027/Cozy-Study-Corner-Application/releases/latest/download/CozyStudyCorner.zip" class="download-btn">
-        👉 立即下載遊戲 (Windows版)
+      <a href="https://github.com/s411287027/Cozy-Study-Corner-Application/releases/latest/download/CozyStudyCorner.zip" class="download-final-btn">
+        📥 下載 Windows 版
       </a>
-
-      <div class="instruction-box">
-        <strong>💡 安裝說明：</strong>
-        <ol>
-          <li>點擊上方按鈕下載 <strong>.zip</strong> 壓縮檔。</li>
-          <li>下載完成後，請務必<strong>解壓縮整個資料夾</strong>。</li>
-          <li>進入資料夾，雙擊執行 <strong>.exe</strong> 檔即可開始遊戲。</li>
-        </ol>
+      
+      <div class="tech-stack">
+        <p>Powered by Unity & Firebase</p>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 
   <footer>
-    <p>© 2025 Cozy Study Corner Application. Made with CAT in Unity.</p>
+    <p>© 2025 Cozy Study Corner by Team CAT</p>
   </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>
