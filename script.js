@@ -19,3 +19,11 @@ document.addEventListener('click', function(event) {
         navLinks.classList.remove('active');
     }
 });
+
+// 設定音樂預設音量為 30% (比較柔和)
+document.addEventListener('DOMContentLoaded', function() {
+    var audio = document.getElementById("bgm");
+    if(audio) {
+        audio.volume = 0.3; 
+    }
+});

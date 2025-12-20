@@ -307,3 +307,49 @@ footer {
         font-size: 2rem;
     }
 }
+
+/* --- 懸浮音樂播放器 --- */
+.music-player {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #81faf050; /* 半透明白色 */
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    z-index: 999; /* 確保它浮在最上面 */
+    backdrop-filter: blur(5px); /* 毛玻璃效果 */
+    border: 2px solid #FFF3E0;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.music-player:hover {
+    transform: translateY(-5px); /* 滑鼠移過去會浮起來一點 */
+}
+
+.music-label {
+    font-size: 0.9rem;
+    color: #0479af; /* 用我們之前設定的粉橘色 */
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* 調整原生播放器的大小 */
+audio {
+    height: 60px;
+    width: 300px;
+    outline: none;
+}
+
+/* --- 手機版調整 --- */
+@media (max-width: 768px) {
+    .music-player {
+        bottom: 10px;
+        right: 10px;
+        padding: 10px;
+    }
+    audio {
+        width: 150px; /* 手機上做小一點 */
+    }
+}
