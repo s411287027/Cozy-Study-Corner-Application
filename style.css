@@ -353,3 +353,30 @@ audio {
         width: 150px; /* 手機上做小一點 */
     }
 }
+
+/* --- 影片展示區塊 --- */
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 800px; /* 限制最大寬度，避免影片在電腦上太大 */
+    margin: 0 auto;   /* 居中對齊 */
+    border-radius: 20px; /* 圓角 */
+    overflow: hidden; /* 確保內容不會跑出圓角 */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* 漂亮的陰影 */
+    background-color: #000; /* 載入前的背景色 */
+}
+
+/* 讓 YouTube 影片保持 16:9 比例 (響應式設計) */
+.video-wrapper iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* 設定長寬比為 16:9 */
+    height: auto;
+    display: block;
+}
+
+/* 如果是使用 MP4 本機播放的樣式 */
+.video-wrapper video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
